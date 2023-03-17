@@ -1,0 +1,6 @@
+.DS_Store
+app/__pycache__/
+app/migrations/
+app/migrations/__pycache__/
+config/__pycache__/
+scripts/__pycache__/
