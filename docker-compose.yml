@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    container_name: app
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    environment:
+      PYTHONUNBUFFERED: 1
+    volumes:
+      - ./wx_data:/wx_data
+    command: sh -c "python manage.py makemigrations app && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+  db:
+      image: postgres
+      container_name: postgres
+      restart: always
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_DB: mydatabase
+        POSTGRES_PASSWORD: postgres
+      volumes:
+        - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    name: postgres-data
