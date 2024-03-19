@@ -19,7 +19,7 @@ API for managing employee and department records.
 
 2. Build and run the application using Docker Compose. This will automatically download the required dependencies.
     ```bash
-    docker-compose up -d
+    docker-compose up
     ```
 
 3. Ingest the Employee data from wx_data/employee_data.csv into the database:
